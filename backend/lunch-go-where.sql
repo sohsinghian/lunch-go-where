@@ -1,0 +1,15 @@
+-- CREATE DATABASE lunch-go-where;
+
+-- GRANT ALL PRIVILEGES ON DATABASE lunch-go-where TO superuser;
+-- GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA public to superuser;
+
+BEGIN;
+
+CREATE TABLE restaurants (
+    id SERIAL NOT NULL PRIMARY KEY UNIQUE,
+    name VARCHAR(60) NOT NULL
+);
+
+COMMIT;
+
+ANALYZE restaurants;
