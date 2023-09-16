@@ -22,6 +22,9 @@ User must be able to:
 - Remove wrong inputs
 - Request for a random choice based on submitted choices
 
+### Wireframe
+<img src="https://github.com/sohsinghian/lunch-go-where/blob/main/wireframe.png" alt="wireframe" width="500"/>
+
 ### Problem-Solving Strategy
 
 I console.logged from where the error is to determine where the problem lies in the code and tried to move from there by debugging the codes.
