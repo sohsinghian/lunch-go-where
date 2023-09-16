@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import Restaurant from "../components/Restaurant";
+import Restaurants from "../components/Restaurants";
+// import axios from "axios";
 
 const Main = () => {
   const [restaurant, setRestaurant] = useState("");
@@ -33,11 +34,11 @@ const Main = () => {
 
       <div>
         <div>Suggested Restaurants</div>
-        <Restaurant />
+        <Restaurants />
         {/* <button>Remove All</button> */}
       </div>
       <button onClick={handleRequest} className="text-blue-600 font-bold">
-        Request Random Restaurant
+        Select Random Restaurant
       </button>
     </>
   );

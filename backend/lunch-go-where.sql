@@ -1,7 +1,7 @@
--- CREATE DATABASE lunch-go-where;
+CREATE DATABASE lunch_go_where;
 
--- GRANT ALL PRIVILEGES ON DATABASE lunch-go-where TO superuser;
--- GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA public to superuser;
+GRANT ALL PRIVILEGES ON DATABASE lunch_go_where TO sohsinghian;
+GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA public to sohsinghian;
 
 BEGIN;
 
