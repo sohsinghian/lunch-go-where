@@ -22,12 +22,6 @@ User must be able to:
 - Remove wrong inputs
 - Request for a random choice based on submitted choices
 
-## Planning and Development Process
-
-I started off planning the wireframes to have a rough idea of how the app should look like. Next, I planned the database table and included primary key and foreign key, and also to determine which values should be unique and not null.
-
-I started developing the project from the frontend with CSS and skeleton of the body. Next, I coded the backend with CRUDs. After, I tried to link the backend and frontend with axios. I continued on from there and edit the backend and frontend as and when needed. Lots of debugging required.
-
 ### Problem-Solving Strategy
 
 I console.logged from where the error is to determine where the problem lies in the code and tried to move from there by debugging the codes.
