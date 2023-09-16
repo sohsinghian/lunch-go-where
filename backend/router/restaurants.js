@@ -11,14 +11,33 @@ router.get("/all", async (req, res) => {
   }
 });
 
-router.delete("/remove", async (req, res) => {
+router.post("/add", async (req, res) => {
   try {
     const { restaurantName } = req.body;
 
+    const restaurant = await pool.query(
+      `INSERT INTO restaurants (name)
+      VALUES ($1)`,
+      [restaurantName]
+    );
+    console.log("restaurant added is: ", restaurant);
+
+    res.json({ status: "ok", message: "added to database" });
+  } catch (error) {
+    res
+      .status(401)
+      .json({ status: "error", message: "problem with adding to database" });
+  }
+});
+
+router.delete("/remove", async (req, res) => {
+  try {
+    const { restaurantId } = req.body;
+
     const deletedItem = await pool.query(
       `DELETE FROM restaurants
-          WHERE name=$1`,
-      [restaurantName]
+          WHERE id=$1`,
+      [restaurantId]
     );
     if (deletedItem.rowCount === 1) {
       res.json({ status: "ok", message: "item deleted" });

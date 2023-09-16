@@ -1,27 +1,25 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import axios from "axios";
 
-const Restaurants = () => {
-  const [restaurants, setRestaurants] = useState([]);
-
-  useEffect(() => {
-    axios.get("http://localhost:5001/restaurants/all").then((res) => {
-      const data = res.data;
-      setRestaurants(data);
-    });
-  }, []);
-
-  const handleDelete = (event) => {
+const Restaurants = (props) => {
+  const handleDelete = async (event) => {
     event.preventDefault();
+    const restaurantId = event.target.parentNode.id;
+    await axios.delete("http://localhost:5001/restaurants/remove", {
+      data: {
+        restaurantId,
+      },
+    });
+    props.fetchRestaurants();
   };
+
   return (
     <>
-      {/* <p>{restaurants[0].name}</p> */}
-      <div>
-        {restaurants.map((element) => {
+      <div className="flex flex-col items-center">
+        {props.restaurants.map((element) => {
           return (
             <>
-              <div className="flex flex-row">
+              <div className="flex flex-row pb-2" id={element.id}>
                 <p className="pr-2">{element.name}</p>
                 <button onClick={handleDelete} className="font-bold">
                   X
