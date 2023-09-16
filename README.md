@@ -24,6 +24,8 @@ User must be able to:
 
 ### Wireframe
 <img src="https://github.com/sohsinghian/lunch-go-where/blob/main/wireframe.png" alt="wireframe" width="500"/>
+<img src="https://github.com/sohsinghian/lunch-go-where/blob/main/postgreSQL.png" alt="wireframe" width="500"/>
+
 
 ### Problem-Solving Strategy
 
