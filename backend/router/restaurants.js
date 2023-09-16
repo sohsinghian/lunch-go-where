@@ -49,4 +49,23 @@ router.delete("/remove", async (req, res) => {
   }
 });
 
+router.get("/random", async (req, res) => {
+  try {
+    const restaurants = await pool.query(`SELECT * FROM restaurants`);
+
+    if (restaurants.rows.length > 0) {
+      const random =
+        restaurants.rows[Math.floor(Math.random() * restaurants.rows.length)]
+          .name;
+      res.status(200).json(random);
+    } else {
+      res.status(200).json(null);
+    }
+  } catch (error) {
+    res
+      .status(401)
+      .json({ status: "error", message: "problem with returning value" });
+  }
+});
+
 module.exports = router;

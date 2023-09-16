@@ -23,22 +23,26 @@ const Main = () => {
 
   const handleAddRestaurant = async (event) => {
     event.preventDefault();
-    await axios.post("http://localhost:5001/restaurants/add", {
-      restaurantName,
-    });
-    fetchRestaurants();
-    setRestaurantName("");
+    if (restaurantName !== "") {
+      await axios.post("http://localhost:5001/restaurants/add", {
+        restaurantName,
+      });
+      fetchRestaurants();
+      setRestaurantName("");
+    }
   };
 
-  const handleRequest = (event) => {
+  const handleRequest = async (event) => {
     event.preventDefault();
-    const random =
-      restaurants[Math.floor(Math.random() * restaurants.length)].name;
-    setRandomRestaurant(random);
+    axios.get("http://localhost:5001/restaurants/random").then((res) => {
+      const data = res.data;
+      setRandomRestaurant(data);
+    });
   };
+
   return (
     <>
-      <div className="text-blue-600 text-center font-bold text-6xl pt-4">
+      <div className="text-blue-600 text-center font-bold text-6xl py-6 bg-blue-100">
         Lunch Go Where
       </div>
 
@@ -54,7 +58,10 @@ const Main = () => {
             onChange={handleRestaurantChange}
             className="bg-slate-200 rounded-md px-4 py-1"
           />
-          <button type="submit" className="text-blue-600 font-bold pl-2">
+          <button
+            type="submit"
+            className="text-blue-600 font-bold bg-red-200 py-1 px-3 rounded-md ml-4"
+          >
             Submit
           </button>
         </form>
@@ -66,11 +73,13 @@ const Main = () => {
           restaurants={restaurants}
           fetchRestaurants={fetchRestaurants}
         />
-        {/* <button>Remove All</button> */}
       </div>
       <div className="text-center pt-8">
-        <button onClick={handleRequest} className="text-blue-600 font-bold">
-          Select a random Restaurant
+        <button
+          onClick={handleRequest}
+          className="text-blue-600 font-bold bg-red-200 py-1 px-3 rounded-md ml-4"
+        >
+          Select Random
         </button>
       </div>
       {randomRestaurant && (

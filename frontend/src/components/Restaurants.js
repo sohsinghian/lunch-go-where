@@ -19,9 +19,12 @@ const Restaurants = (props) => {
         {props.restaurants.map((element) => {
           return (
             <>
-              <div className="flex flex-row pb-2" id={element.id}>
-                <p className="pr-2">{element.name}</p>
-                <button onClick={handleDelete} className="font-bold">
+              <div
+                className="grid grid-cols-2 items-center w-1/5"
+                id={element.id}
+              >
+                <p className="py-1">{element.name}</p>
+                <button onClick={handleDelete} className="font-bold self-end">
                   X
                 </button>
               </div>
